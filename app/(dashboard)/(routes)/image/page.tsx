@@ -100,7 +100,8 @@ const ImagePage = () => {
     }
 
 
-
+    //- Note : 
+    //* We need to configure react/images to accept external domains for images 
 
 
     return (
