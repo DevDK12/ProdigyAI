@@ -18,3 +18,12 @@ Timestamps
 04:59:42 Error Handling & Customer Support (Crisp)
 05:08:35 Landing Page
 05:24:35 Deployment & Wrap Up
+
+
+
+npx prisma db push
+npx prisma generate
+
+
+
+npx prisma studio
