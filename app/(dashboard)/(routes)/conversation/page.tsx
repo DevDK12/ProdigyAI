@@ -4,13 +4,13 @@ import { MessageSquare } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { Heading } from "@/components/heading";
+import { Heading } from "@/components/Header/heading";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 
-import { Empty } from "@/components/empty";
-import { Loader } from "@/components/loader";
+import { Empty } from "@/components/GeneralUI/empty";
+import { Loader } from "@/components/GeneralUI/loader";
 
 
 //- Form Schema and hooks : 
@@ -33,8 +33,8 @@ import { ChatCompletionRequestMessage } from "openai";
 
 
 //- Response from server 
-import { BotAvatar } from "@/components/bot-avatar";
-import { UserAvatar } from "@/components/user-avatar";
+import { BotAvatar } from "@/components/GeneralUI/bot-avatar";
+import { UserAvatar } from "@/components/GeneralUI/user-avatar";
 
 
 

@@ -4,13 +4,13 @@ import { ImageIcon } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { Heading } from "@/components/heading";
+import { Heading } from "@/components/Header/heading";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 
-import { Empty } from "@/components/empty";
-import { Loader } from "@/components/loader";
+import { Empty } from "@/components/GeneralUI/empty";
+import { Loader } from "@/components/GeneralUI/loader";
 
 
 //- Form Schema and hooks : 
