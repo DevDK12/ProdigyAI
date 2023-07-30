@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export const metadata: Metadata = {
-  title: 'AI Prodigy',
+  title: 'Prodigy AI',
   description: 'AI Platform',
 }
 
@@ -24,6 +24,9 @@ const RootLayout = ({children}: {
     return (
       <ClerkProvider >
         <html lang="en">
+            <head>
+              <link rel="shortcut icon" href="/logo.png" />
+            </head>
           <CrispProvider />
           <body className={inter.className}>
             <ModalProvider />
