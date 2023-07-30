@@ -4,7 +4,8 @@ import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 
 
 
-
+import {incrementApiLimit, checkApiLimit} from '@/lib/api-limit';
+import { checkSubscription } from "@/lib/subscription";
 
 
 const configuration = new Configuration({
@@ -42,10 +43,22 @@ export const POST = async (req: Request ) =>  {
         }
 
 
+        const freeTrial = await checkApiLimit();
+        const isPro = await checkSubscription();
+
+        if(!freeTrial && !isPro){
+            return new NextResponse("Free Trial has expired", {status : 403})
+        }
+
+
         const response = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: [instructionMessage, ...messages]
         });
+
+        if(!isPro){
+            await incrementApiLimit();
+        }
 
 
         return NextResponse.json(response.data.choices[0].message);

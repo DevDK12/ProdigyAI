@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Montserrat } from 'next/font/google'
 import { Code, ImageIcon, LayoutDashboard, MessageSquare, Music, Settings, VideoIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
-
+import { FreeCounter } from "@/components/free-counter";
 import { cn } from "@/lib/utils";
 
 
@@ -73,8 +73,22 @@ const routes = [
 
 
 
-export const Sidebar = () => {
 
+interface SidebarProps {
+    apiLimitCount: number,
+    isPro: boolean
+};
+
+
+export const Sidebar = ({ apiLimitCount = 0, isPro = false } : SidebarProps) => {
+
+//- Note : 
+//* This is client component 
+
+//* We are fetching apiCount in Server component directly having access to Prisma
+//_ which is Layout component
+
+//* So we are fetching there and accepting here via prop (in Client component ())
 
 
     const pathname = usePathname();
@@ -114,6 +128,13 @@ export const Sidebar = () => {
                     ))}
                 </div>
             </div>
+
+
+            <FreeCounter
+                isPro={isPro}
+                apiLimitCount={apiLimitCount}
+            />
+
         </div>
     );
 };

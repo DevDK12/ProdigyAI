@@ -39,7 +39,16 @@ import ReactMarkdown from 'react-markdown';
 
 
 
+//- Pro modal and error handling
+import { useProModal } from "@/hooks/use-pro-modal";
+import { toast } from "react-hot-toast";
+
+
+
+
 const CodePage = () => {
+
+    const proModal = useProModal();
 
     const router = useRouter();
 
@@ -86,6 +95,11 @@ const CodePage = () => {
         } 
         catch (error: any) {
 
+            if (error?.response?.status === 403) {
+                proModal.onOpen();
+            } else {
+                toast.error("Something went wrong.");
+            }
             console.log(error);
 
         } finally {

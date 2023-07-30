@@ -21,9 +21,24 @@ Timestamps
 
 
 
+//- To run Prisma : 
+
 npx prisma db push
 npx prisma generate
 
 
-
 npx prisma studio
+
+
+
+
+//- To run Stripe CLI : 
+
+//* Open powershell in directory where CLI is installed 
+
+stripe login
+
+stripe listen --forward-to localhost:3000/api/webhook
+
+//* Test stripe credit card
+4242 4242 4242 4242
